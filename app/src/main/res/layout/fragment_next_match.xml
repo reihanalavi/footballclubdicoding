@@ -1,15 +1,17 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.reihanalavi.footballmatch.fragments.NextMatch">
-
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Next Match"
-        android:layout_gravity="center"
-        android:gravity="center"/>
-
-</FrameLayout>
+        android:id="@+id/rv_next">
+    </android.support.v7.widget.RecyclerView>
+    <ProgressBar
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:id="@+id/pb_next"/>
+</RelativeLayout>

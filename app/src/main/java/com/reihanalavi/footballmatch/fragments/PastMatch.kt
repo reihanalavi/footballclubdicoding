@@ -42,43 +42,39 @@ class PastMatch : Fragment(), MatchView {
     private lateinit var matchPresenter: MatchPresenter
     private lateinit var matchAdapter: MatchAdapter
 
-    private lateinit var listMatch: RecyclerView
-    private lateinit var progressBar: ProgressBar
+    private lateinit var pbPast: ProgressBar
+    private lateinit var rvPast: RecyclerView
 
-    private var pastMatch: String = "PAST_MATCH"
+    private val pastMatch: String = "PAST_MATCH"
 
     override fun showLoading() {
-        progressBar.visibility = View.VISIBLE
+        pbPast.visibility = View.VISIBLE
     }
 
     override fun hideLoading() {
-        progressBar.visibility = View.INVISIBLE
+        pbPast.visibility = View.INVISIBLE
     }
 
     override fun showMatch(data: List<MatchItems>?) {
         data?.let {
             Log.i("On Show Match : ", "Data Size : ${data?.size}")
             matchAdapter.refresh(it)
+            if(data?.size == null) {
+                toast(getString(R.string.there_is_no_previous_match))
+            }
         }
     }
 
-    /** This is used to parse JSON from API without Adapter
-    fun bindData(matchItems: MatchItems?) {
-        var team: String? = matchItems?.teamHome
-        team?.replace(";","\n")
-    }
-    **/
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
         val views = inflater?.inflate(R.layout.fragment_past_match, container, false)
 
+        pbPast = views?.findViewById(R.id.pb_past) as ProgressBar
+        rvPast = views?.findViewById(R.id.rv_past) as RecyclerView
 
         views?.let {
-
-            listMatch = it.findViewById(R.id.rv_past) as RecyclerView
-            progressBar = it.findViewById(R.id.pb_past) as ProgressBar
 
             matchAdapter = MatchAdapter(context, matchItems) {
                 ctx.startActivity<DetailActivity>(
@@ -90,12 +86,9 @@ class PastMatch : Fragment(), MatchView {
                 )
             }
 
-            listMatch.layoutManager = LinearLayoutManager(ctx)
-
-            listMatch.adapter = matchAdapter
-
+            rvPast.layoutManager = LinearLayoutManager(ctx)
+            rvPast.adapter = matchAdapter
             matchPresenter = MatchPresenter(this, ApiRepo(), Gson())
-
             matchPresenter.getMatch(pastMatch)
         }
 

@@ -1,20 +1,14 @@
 package com.reihanalavi.footballmatch
 
 import android.annotation.SuppressLint
-import android.content.Context
-import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import android.widget.LinearLayout
-import android.widget.ProgressBar
-import android.widget.ScrollView
-import android.widget.TextView
 import com.bumptech.glide.Glide
 import com.google.gson.Gson
 import com.reihanalavi.footballmatch.models.DetailItems
-import com.reihanalavi.footballmatch.models.MatchItems
+import com.reihanalavi.footballmatch.models.TeamItems
 import com.reihanalavi.footballmatch.repo.ApiRepo
 import com.reihanalavi.footballmatch.views.DetailPresenter
 import com.reihanalavi.footballmatch.views.DetailView
@@ -25,51 +19,83 @@ class DetailActivity : AppCompatActivity(), DetailView {
 
     private val detailItems: MutableList<DetailItems> = mutableListOf()
     private lateinit var detailPresenter: DetailPresenter
-    private lateinit var pbDetails: ProgressBar
-
-    //Result View
-    private lateinit var txtDate: TextView
-    private lateinit var txtHomeTeam: TextView
-    private lateinit var txtHomeForm: TextView
-    private lateinit var txtAwayTeam: TextView
-    private lateinit var txtAwayForm: TextView
-    private lateinit var txtScore: TextView
-    //Statistic View
-    private lateinit var txtHomeGoals: TextView
-    private lateinit var txtHomeShots: TextView
-    private lateinit var txtAwayGoals: TextView
-    private lateinit var txtAwayShots: TextView
-    //Cards View
-    private lateinit var txtHomeRed: TextView
-    private lateinit var txtHomeYellow: TextView
-    private lateinit var txtAwayRed: TextView
-    private lateinit var txtAwayYellow: TextView
-    //Lineup View
-    private lateinit var txtHomeGk: TextView
-    private lateinit var txtHomeDef: TextView
-    private lateinit var txtHomeMid: TextView
-    private lateinit var txtHomeFor: TextView
-    private lateinit var txtAwayGk: TextView
-    private lateinit var txtAwayDef: TextView
-    private lateinit var txtAwayMid: TextView
-    private lateinit var txtAwayFor: TextView
-    //Substitution View
-    private lateinit var txtHomeSub: TextView
-    private lateinit var txtAwaySub: TextView
 
     override fun showLoading() {
-        pbDetails.visibility = View.VISIBLE
+        pb_details.visibility = View.VISIBLE
+        mainLayout.visibility = View.INVISIBLE
     }
 
     override fun hideLoading() {
-        pbDetails.visibility = View.INVISIBLE
+        pb_details.visibility = View.INVISIBLE
+        mainLayout.visibility = View.VISIBLE
     }
 
-    override fun showDetail(detail: List<DetailItems>?, home: List<DetailItems>?, away: List<DetailItems>?) {
+    override fun showDetail(detail: List<DetailItems>?, home: List<TeamItems>?, away: List<TeamItems>?) {
         try {
             let {
-                Log.i("Away Goal","${detail?.get(0)?.awayGoal}")
-                Log.i("Away Badge", "${away?.get(0)?.teamBadge}")
+                val data = detail?.get(0)
+                val homeData = home?.get(0)
+                val awayData = away?.get(0)
+
+                //Replaces Team Home from Detail Results
+                var goalHome: String? = data?.homeGoal
+                goalHome?.replace(";", "\n")
+                var redHome: String? = data?.homeRed
+                redHome?.replace(";", "\n")
+                var yellowHome: String? = data?.homeYellow
+                yellowHome?.replace(";", "\n")
+                var gkHome: String? = data?.homeGk
+                gkHome?.replace(";", "\n")
+                var defHome: String? = data?.homeDef
+                defHome?.replace(";", "\n")
+                var midHome: String? = data?.homeMid
+                midHome?.replace(";", "\n")
+                var forHome: String? = data?.homeFor
+                forHome?.replace(";", "\n")
+                var subHome: String? = data?.homeSub
+                subHome?.replace(";", "\n")
+
+                //Replaces Team Away from Detail Results
+                var goalAway: String? = data?.awayGoal
+                goalAway?.replace(";", "\n")
+                var redAway: String? = data?.awayRed
+                redAway?.replace(";", "\n")
+                var yellowAway: String? = data?.awayYellow
+                yellowAway?.replace(";", "\n")
+                var gkAway: String? = data?.awayGk
+                gkAway?.replace(";", "\n")
+                var defAway: String? = data?.awayDef
+                defAway?.replace(";", "\n")
+                var midAway: String? = data?.awayMid
+                midAway?.replace(";", "\n")
+                var forAway: String? = data?.awayFor
+                forAway?.replace(";", "\n")
+                var subAway: String? = data?.awaySub
+                subAway?.replace(";", "\n")
+
+                Glide.with(ctx).load(homeData?.teamBadge).into(img_home)
+                txt_manager_home.text = homeData?.teamManager
+                txt_goal_home.text = goalHome
+                txt_shots_home.text = data?.homeShots
+                txt_red_home.text = redHome
+                txt_yellow_home.text = yellowHome
+                txt_gk_home.text = gkHome
+                txt_def_home.text = defHome
+                txt_mid_home.text = midHome
+                txt_for_home.text = forHome
+                txt_sub_home.text = subHome
+
+                Glide.with(ctx).load(awayData?.teamBadge).into(img_away)
+                txt_manager_away.text = awayData?.teamManager
+                txt_goal_away.text = goalAway
+                txt_shots_away.text = data?.awayShots
+                txt_red_away.text = redAway
+                txt_yellow_away.text = yellowAway
+                txt_gk_away.text = gkAway
+                txt_def_away.text = defAway
+                txt_mid_away.text = midAway
+                txt_for_away.text = forAway
+                txt_sub_away.text = subAway
             }
         } catch (e: Exception) {
             Log.d("TAG", e.toString())
@@ -86,8 +112,10 @@ class DetailActivity : AppCompatActivity(), DetailView {
         setContentView(R.layout.activity_detail)
 
         ctx.let {
-            pbDetails = findViewById(R.id.pb_details) as ProgressBar
 
+            //pbDetails = findViewById(R.id.pb_details) as ProgressBar
+
+            /**
             txtDate = findViewById(R.id.txtDate) as TextView
             txtHomeTeam = findViewById(R.id.txtHomeTeam) as TextView
             txtAwayTeam = findViewById(R.id.txtAwayTeam) as TextView
@@ -97,15 +125,16 @@ class DetailActivity : AppCompatActivity(), DetailView {
             txtHomeShots = findViewById(R.id.txtHomeShots) as TextView
             txtAwayGoals = findViewById(R.id.txtAwayGoals) as TextView
             txtAwayShots = findViewById(R.id.txtAwayShots) as TextView
+            **/
 
             val i = intent
 
             detailPresenter = DetailPresenter(this, ApiRepo(), Gson())
 
-            txtDate.text = i.getStringExtra("dateMatch")
-            txtHomeTeam.text = i.getStringExtra("homeTeam")
-            txtAwayTeam.text = i.getStringExtra("awayTeam")
-            txtScore.text = i.getStringExtra("goalHome") + ":" + i.getStringExtra("goalAway")
+            txt_date.text = i.getStringExtra("dateMatch")
+            txt_team_home.text = i.getStringExtra("homeTeam")
+            txt_team_away.text = i.getStringExtra("awayTeam")
+            txt_score.text = i.getStringExtra("goalHome") + ":" + i.getStringExtra("goalAway")
 
             val homeId: String? = i.getStringExtra("idHome")
             val awayId: String? = i.getStringExtra("idAway")

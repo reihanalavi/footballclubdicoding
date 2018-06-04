@@ -11,5 +11,7 @@
     <string name="defense">Defense</string>
     <string name="midfield">Midfield</string>
     <string name="forward">Forward</string>
-    <string name="substitues">Substitues</string>
+    <string name="substitues">Substitutes</string>
+    <string name="there_is_no_previous_match">There is no Previous Match(es)</string>
+    <string name="there_is_no_upcoming_match">There is no Upcoming Match(es)</string>
 </resources>

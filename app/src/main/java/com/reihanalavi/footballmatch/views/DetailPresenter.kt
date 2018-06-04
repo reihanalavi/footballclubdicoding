@@ -7,6 +7,7 @@ import com.reihanalavi.footballmatch.repo.ApiCall
 import com.reihanalavi.footballmatch.repo.ApiRepo
 import com.reihanalavi.footballmatch.responses.DetailResponse
 import com.reihanalavi.footballmatch.responses.MatchResponse
+import com.reihanalavi.footballmatch.responses.TeamResponse
 import kotlinx.coroutines.experimental.async
 import org.jetbrains.anko.doAsync
 import org.jetbrains.anko.uiThread
@@ -27,13 +28,13 @@ class DetailPresenter (
             val reqHomeTeam = apiRepo.loadTeam(homeId)
             val reqAwayTeam = apiRepo.loadTeam(awayId)
             val reqDetail = apiRepo.loadDetail(matchId)
-            val home = Gson().fromJson(reqHomeTeam, DetailResponse::class.java)
-            val away = Gson().fromJson(reqAwayTeam, DetailResponse::class.java)
+            val home = Gson().fromJson(reqHomeTeam, TeamResponse::class.java)
+            val away = Gson().fromJson(reqAwayTeam, TeamResponse::class.java)
             val detail = Gson().fromJson(reqDetail, DetailResponse::class.java
             )
             uiThread {
                 view.hideLoading()
-                view.showDetail(detail?.detailItems, home?.detailItems, away?.detailItems)
+                view.showDetail(detail?.detailItems, home?.teamsItems, away?.teamsItems)
                 Log.i("HeyHeyHey : ", reqDetail)
             }
 

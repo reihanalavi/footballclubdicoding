@@ -7,10 +7,6 @@ import com.google.gson.annotations.SerializedName
  */
 data class DetailItems (
 
-        //Team Details
-        @SerializedName("strTeamBadge") val teamBadge: String? = null,
-        @SerializedName("strManager") val teamManager: String? = null,
-
         //Match Details HOME
         @SerializedName("strHomeGoalDetails") val homeGoal: String? = null,
         @SerializedName("strHomeRedCards") val homeRed: String? = null,

@@ -11,116 +11,117 @@
     tools:context="com.reihanalavi.footballmatch.DetailActivity">
 
     <ScrollView
+        android:id="@+id/mainLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/layout">
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:orientation="vertical"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
             <TextView
-                android:id="@+id/txtDate"
+                android:id="@+id/txt_date"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                tools:text="Date Of Match"
                 android:paddingBottom="10dp"
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"
                 android:paddingTop="10dp"
-                android:textAlignment="center" />
+                android:textAlignment="center"
+                tools:text="Date Of Match" />
 
             <RelativeLayout
+                android:id="@+id/ResultLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
                 <TextView
-                    android:id="@+id/txtHomeTeam"
+                    android:id="@+id/txt_team_home"
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
-                    tools:text="FC Barcelona"
                     android:textAlignment="center"
                     android:textSize="14sp"
                     android:textStyle="bold"
-                    tools:ignore="SmallSp" />
+                    tools:ignore="SmallSp"
+                    tools:text="FC Barcelona" />
 
                 <TextView
-                    android:id="@+id/txtHomeManager"
+                    android:id="@+id/txt_manager_home"
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
-                    android:layout_below="@+id/txtHomeTeam"
-                    tools:text="Pep Guardiola"
+                    android:layout_below="@+id/txt_team_home"
                     android:textAlignment="center"
                     android:textSize="14sp"
-                    tools:ignore="SmallSp" />
+                    tools:ignore="SmallSp"
+                    tools:text="Pep Guardiola" />
 
                 <TextView
-                    android:id="@+id/txtAwayManager"
+                    android:id="@+id/txt_manager_away"
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
-                    android:layout_below="@+id/txtAwayTeam"
-                    tools:text="Jurgen Klopp"
+                    android:layout_below="@+id/txt_team_away"
                     android:textAlignment="center"
                     android:textSize="14sp"
-                    tools:ignore="SmallSp" />
+                    tools:ignore="SmallSp"
+                    tools:text="Jurgen Klopp" />
 
                 <TextView
-                    android:id="@+id/txtAwayTeam"
+                    android:id="@+id/txt_team_away"
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
                     android:layout_alignParentTop="true"
-                    tools:text="Bayern Munich"
                     android:textAlignment="center"
                     android:textSize="14sp"
                     android:textStyle="bold"
-                    tools:ignore="SmallSp" />
+                    tools:ignore="SmallSp"
+                    tools:text="Bayern Munich" />
 
                 <ImageView
-                    android:id="@+id/imgHomeBadge"
+                    android:id="@+id/img_home"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:layout_alignParentStart="true"
-                    android:layout_alignTop="@+id/imgAwayBadge" />
+                    android:layout_alignTop="@+id/img_away" />
 
                 <ImageView
-                    android:id="@+id/imgAwayBadge"
+                    android:id="@+id/img_away"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:layout_alignParentEnd="true"
-                    android:layout_below="@+id/txtAwayManager"
+                    android:layout_below="@+id/txt_manager_away"
                     android:layout_marginTop="5dp" />
 
                 <TextView
-                    android:id="@+id/txtScore"
+                    android:id="@+id/txt_score"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    tools:text="0 : 0"
-                    android:textAlignment="center" />
+                    android:textAlignment="center"
+                    tools:text="0 : 0" />
 
                 <TextView
-                    android:id="@+id/txtHomeForm"
+                    android:id="@+id/txt_form_home"
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
-                    android:layout_below="@+id/imgHomeBadge"
-                    tools:text="4-3-3"
+                    android:layout_below="@+id/img_home"
                     android:textAlignment="center"
-                    android:textSize="14sp" />
+                    android:textSize="14sp"
+                    tools:text="4-3-3" />
 
                 <TextView
-                    android:id="@+id/txtAwayForm"
+                    android:id="@+id/txt_form_away"
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
-                    android:layout_below="@+id/imgAwayBadge"
-                    tools:text="4-3-2-1"
+                    android:layout_below="@+id/img_away"
                     android:textAlignment="center"
-                    android:textSize="14sp" />
+                    android:textSize="14sp"
+                    tools:text="4-3-2-1" />
 
             </RelativeLayout>
 
@@ -131,75 +132,90 @@
                 android:background="@color/cardview_shadow_start_color" />
 
             <RelativeLayout
+                android:id="@+id/StatisticLayout"
                 android:layout_width="match_parent"
-                android:layout_marginTop="10dp"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp">
 
-                <TextView
-                    android:id="@+id/txtHomeGoals"
-                    android:layout_width="100dp"
-                    android:layout_height="wrap_content"
-                    tools:text="FC Barcelona"
-                    android:textAlignment="viewStart"
-                    android:textSize="14sp"
-                    tools:ignore="SmallSp" />
+                <RelativeLayout
+                    android:id="@+id/line1_statistic"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
 
-                <TextView
-                    android:id="@+id/txtHomeShots"
-                    android:layout_width="100dp"
-                    android:layout_below="@id/txtHomeGoals"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentStart="true"
-                    tools:text="FC Barcelona"
-                    android:textAlignment="viewStart"
-                    android:textSize="14sp"
-                    tools:ignore="SmallSp" />
+                    <TextView
+                        android:id="@+id/txt_goal_away"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentTop="true"
+                        android:textAlignment="textEnd"
+                        android:textSize="14sp"
+                        tools:ignore="SmallSp"
+                        tools:text="Bayern Munich" />
 
-                <TextView
-                    android:id="@+id/txtAwayGoals"
-                    android:layout_width="100dp"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
-                    android:layout_alignParentTop="true"
-                    tools:text="Bayern Munich"
-                    android:textAlignment="textEnd"
-                    android:textSize="14sp"
-                    tools:ignore="SmallSp" />
+                    <TextView
+                        android:id="@+id/txtGoals"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:text="@string/goals"
+                        android:textAlignment="center"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="14sp"
+                        tools:ignore="SmallSp" />
 
-                <TextView
-                    android:id="@+id/txtAwayShots"
-                    android:layout_width="100dp"
-                    android:layout_below="@id/txtAwayGoals"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
-                    tools:text="Bayern Munich"
-                    android:textAlignment="textEnd"
-                    android:textSize="14sp"
-                    tools:ignore="SmallSp" />
+                    <TextView
+                        android:id="@+id/txt_goal_home"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:textAlignment="viewStart"
+                        android:textSize="14sp"
+                        tools:ignore="SmallSp"
+                        tools:text="FC Barcelona" />
+                </RelativeLayout>
 
-                <TextView
-                    android:id="@+id/txtGoals"
+                <RelativeLayout
+                    android:id="@+id/line2_statistic"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentTop="true"
-                    android:text="@string/goals"
-                    android:textAlignment="center"
-                    android:textColor="@color/colorPrimary"
-                    android:textSize="14sp"
-                    tools:ignore="SmallSp" />
+                    android:layout_below="@+id/line1_statistic"
+                    android:layout_marginTop="4dp">
 
-                <TextView
-                    android:id="@+id/txtShots"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/txtGoals"
-                    android:layout_alignParentStart="true"
-                    android:text="@string/shots"
-                    android:textAlignment="center"
-                    android:textColor="@color/colorPrimary"
-                    android:textSize="14sp"
-                    tools:ignore="SmallSp" />
+                    <TextView
+                        android:id="@+id/txt_shots_away"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_below="@id/txt_goal_away"
+                        android:textAlignment="textEnd"
+                        android:textSize="14sp"
+                        tools:ignore="SmallSp"
+                        tools:text="Bayern Munich" />
+
+                    <TextView
+                        android:id="@+id/txtShots"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_below="@id/txtGoals"
+                        android:text="@string/shots"
+                        android:textAlignment="center"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="14sp"
+                        tools:ignore="SmallSp" />
+
+                    <TextView
+                        android:id="@+id/txt_shots_home"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_below="@id/txt_goal_home"
+                        android:textAlignment="viewStart"
+                        android:textSize="14sp"
+                        tools:ignore="SmallSp"
+                        tools:text="FC Barcelona" />
+                </RelativeLayout>
 
             </RelativeLayout>
 
@@ -210,75 +226,90 @@
                 android:background="@color/cardview_shadow_start_color" />
 
             <RelativeLayout
+                android:id="@+id/CardsLayout"
                 android:layout_width="match_parent"
-                android:layout_marginTop="10dp"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp">
 
-                <TextView
-                    android:id="@+id/txtHomeRed"
-                    android:layout_width="100dp"
-                    android:layout_height="wrap_content"
-                    tools:text="0"
-                    android:textAlignment="viewStart"
-                    android:textSize="14sp"
-                    tools:ignore="SmallSp" />
+                <RelativeLayout
+                    android:id="@+id/line1_cards"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
 
-                <TextView
-                    android:id="@+id/txtHomeYellow"
-                    android:layout_width="100dp"
-                    android:layout_below="@id/txtHomeRed"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentStart="true"
-                    tools:text="1"
-                    android:textAlignment="viewStart"
-                    android:textSize="14sp"
-                    tools:ignore="SmallSp" />
+                    <TextView
+                        android:id="@+id/txt_red_away"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentTop="true"
+                        android:textAlignment="textEnd"
+                        android:textSize="14sp"
+                        tools:ignore="SmallSp"
+                        tools:text="0" />
 
-                <TextView
-                    android:id="@+id/txtAwayRed"
-                    android:layout_width="100dp"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
-                    android:layout_alignParentTop="true"
-                    tools:text="0"
-                    android:textAlignment="textEnd"
-                    android:textSize="14sp"
-                    tools:ignore="SmallSp" />
+                    <TextView
+                        android:id="@+id/txtRed"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:text="@string/red_card_s"
+                        android:textAlignment="center"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="14sp"
+                        tools:ignore="SmallSp" />
 
-                <TextView
-                    android:id="@+id/txtAwayYellow"
-                    android:layout_width="100dp"
-                    android:layout_below="@id/txtAwayRed"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
-                    tools:text="2"
-                    android:textAlignment="textEnd"
-                    android:textSize="14sp"
-                    tools:ignore="SmallSp" />
+                    <TextView
+                        android:id="@+id/txt_red_home"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:textAlignment="viewStart"
+                        android:textSize="14sp"
+                        tools:ignore="SmallSp"
+                        tools:text="0" />
+                </RelativeLayout>
 
-                <TextView
-                    android:id="@+id/txtRed"
+                <RelativeLayout
+                    android:id="@+id/line2_cards"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentTop="true"
-                    android:text="@string/red_card_s"
-                    android:textAlignment="center"
-                    android:textColor="@color/colorPrimary"
-                    android:textSize="14sp"
-                    tools:ignore="SmallSp" />
+                    android:layout_below="@+id/line1_cards"
+                    android:layout_marginTop="4dp">
 
-                <TextView
-                    android:id="@+id/txtYellow"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/txtRed"
-                    android:layout_alignParentStart="true"
-                    android:text="@string/yellow_card_s"
-                    android:textAlignment="center"
-                    android:textColor="@color/colorPrimary"
-                    android:textSize="14sp"
-                    tools:ignore="SmallSp" />
+                    <TextView
+                        android:id="@+id/txt_yellow_home"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_below="@id/txt_red_home"
+                        android:textAlignment="viewStart"
+                        android:textSize="14sp"
+                        tools:ignore="SmallSp"
+                        tools:text="1" />
+
+                    <TextView
+                        android:id="@+id/txt_yellow_away"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_below="@id/txt_red_away"
+                        android:textAlignment="textEnd"
+                        android:textSize="14sp"
+                        tools:ignore="SmallSp"
+                        tools:text="2" />
+
+                    <TextView
+                        android:id="@+id/txtYellow"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_below="@id/txtRed"
+                        android:text="@string/yellow_card_s"
+                        android:textAlignment="center"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="14sp"
+                        tools:ignore="SmallSp" />
+                </RelativeLayout>
 
             </RelativeLayout>
 
@@ -290,144 +321,174 @@
                 android:background="@color/cardview_shadow_start_color" />
 
             <RelativeLayout
+                android:id="@+id/LineupLayout"
                 android:layout_width="match_parent"
-                android:layout_marginTop="10dp"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp">
 
-                <TextView
-                    android:id="@+id/txtHomeGk"
-                    android:layout_width="100dp"
-                    android:layout_height="wrap_content"
-                    tools:text="0"
-                    android:textAlignment="viewStart"
-                    android:textSize="14sp"
-                    tools:ignore="SmallSp" />
+                <RelativeLayout
+                    android:id="@+id/line1_lineup"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
 
-                <TextView
-                    android:id="@+id/txtHomeDef"
-                    android:layout_width="100dp"
-                    tools:below="@id/txtHomeGk"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentStart="true"
-                    android:layout_below="@+id/txtHomeGk"
-                    tools:text="1"
-                    android:textAlignment="viewStart"
-                    android:textSize="14sp"
-                    tools:ignore="SmallSp" />
+                    <TextView
+                        android:id="@+id/txt_gk_home"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:textAlignment="viewStart"
+                        android:textSize="14sp"
+                        tools:ignore="SmallSp"
+                        tools:text="0" />
 
-                <TextView
-                    android:id="@+id/txtHomeMid"
-                    android:layout_width="100dp"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentStart="true"
-                    android:layout_below="@+id/txtHomeDef"
-                    tools:text="1"
-                    android:textAlignment="viewStart"
-                    android:textSize="14sp"
-                    tools:ignore="SmallSp" />
+                    <TextView
+                        android:id="@+id/txtGk"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:text="@string/goalkeeper"
+                        android:textAlignment="center"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="14sp"
+                        tools:ignore="SmallSp" />
 
-                <TextView
-                    android:id="@+id/txtHomeFor"
-                    android:layout_width="100dp"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/txtHomeMid"
-                    android:layout_alignParentStart="true"
-                    tools:text="1"
-                    android:textAlignment="viewStart"
-                    android:textSize="14sp"
-                    tools:ignore="SmallSp" />
+                    <TextView
+                        android:id="@+id/txt_gk_away"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentTop="true"
+                        android:textAlignment="textEnd"
+                        android:textSize="14sp"
+                        tools:ignore="SmallSp"
+                        tools:text="0" />
+                </RelativeLayout>
 
-                <TextView
-                    android:id="@+id/txtAwayGk"
-                    android:layout_width="100dp"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
-                    android:layout_alignParentTop="true"
-                    tools:text="0"
-                    android:textAlignment="textEnd"
-                    android:textSize="14sp"
-                    tools:ignore="SmallSp" />
-
-                <TextView
-                    android:id="@+id/txtAwayDef"
-                    android:layout_width="100dp"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/txtAwayGk"
-                    android:layout_alignParentEnd="true"
-                    tools:text="2"
-                    android:textAlignment="textEnd"
-                    android:textSize="14sp"
-                    tools:ignore="SmallSp" />
-
-                <TextView
-                    android:id="@+id/txtAwayMid"
-                    android:layout_width="100dp"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/txtAwayDef"
-                    android:layout_alignParentEnd="true"
-                    tools:text="2"
-                    android:textAlignment="textEnd"
-                    android:textSize="14sp"
-                    tools:ignore="SmallSp" />
-
-                <TextView
-                    android:id="@+id/txtAwayFor"
-                    android:layout_width="100dp"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/txtAwayMid"
-                    android:layout_alignParentEnd="true"
-                    tools:text="2"
-                    android:textAlignment="textEnd"
-                    android:textSize="14sp"
-                    tools:ignore="SmallSp" />
-
-                <TextView
-                    android:id="@+id/txtGk"
+                <RelativeLayout
+                    android:id="@+id/line2_lineup"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentTop="true"
-                    android:textAlignment="center"
-                    android:textColor="@color/colorPrimary"
-                    android:textSize="14sp"
-                    android:text="@string/goalkeeper"
-                    tools:ignore="SmallSp" />
+                    android:layout_below="@+id/line1_lineup"
+                    android:layout_marginTop="4dp">
 
-                <TextView
-                    android:id="@+id/txtDef"
+                    <TextView
+                        android:id="@+id/txtDef"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_below="@+id/txtGk"
+                        android:text="@string/defense"
+                        android:textAlignment="center"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="14sp"
+                        tools:ignore="SmallSp" />
+
+                    <TextView
+                        android:id="@+id/txt_def_away"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_below="@id/txt_gk_away"
+                        android:textAlignment="textEnd"
+                        android:textSize="14sp"
+                        tools:ignore="SmallSp"
+                        tools:text="2" />
+
+                    <TextView
+                        android:id="@+id/txt_def_home"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_below="@+id/txt_gk_home"
+                        android:textAlignment="viewStart"
+                        android:textSize="14sp"
+                        tools:ignore="SmallSp"
+                        tools:text="1" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/line3_lineup"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentStart="true"
-                    android:layout_below="@+id/txtGk"
-                    android:textAlignment="center"
-                    android:textColor="@color/colorPrimary"
-                    android:textSize="14sp"
-                    android:text="@string/defense"
-                    tools:ignore="SmallSp" />
+                    android:layout_below="@+id/line2_lineup"
+                    android:layout_marginTop="4dp">
 
-                <TextView
-                    android:id="@+id/txtMid"
+                    <TextView
+                        android:id="@+id/txt_mid_home"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_below="@+id/txt_def_home"
+                        android:textAlignment="viewStart"
+                        android:textSize="14sp"
+                        tools:ignore="SmallSp"
+                        tools:text="1" />
+
+                    <TextView
+                        android:id="@+id/txt_mid_away"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_below="@id/txt_def_away"
+                        android:textAlignment="textEnd"
+                        android:textSize="14sp"
+                        tools:ignore="SmallSp"
+                        tools:text="2" />
+
+                    <TextView
+                        android:id="@+id/txtMid"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_below="@id/txtDef"
+                        android:text="@string/midfield"
+                        android:textAlignment="center"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="14sp"
+                        tools:ignore="SmallSp" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/line4_lineup"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentStart="true"
-                    android:layout_below="@id/txtDef"
-                    android:textAlignment="center"
-                    android:textColor="@color/colorPrimary"
-                    android:textSize="14sp"
-                    android:text="@string/midfield"
-                    tools:ignore="SmallSp" />
+                    android:layout_below="@+id/line3_lineup"
+                    android:layout_marginTop="4dp">
 
-                <TextView
-                    android:id="@+id/txtFor"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentStart="true"
-                    android:layout_below="@+id/txtMid"
-                    android:textAlignment="center"
-                    android:textColor="@color/colorPrimary"
-                    android:textSize="14sp"
-                    android:text="@string/forward"
-                    tools:ignore="SmallSp" />
+                    <TextView
+                        android:id="@+id/txtFor"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_below="@+id/txtMid"
+                        android:text="@string/forward"
+                        android:textAlignment="center"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="14sp"
+                        tools:ignore="SmallSp" />
+
+                    <TextView
+                        android:id="@+id/txt_for_home"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_below="@id/txt_mid_home"
+                        android:textAlignment="viewStart"
+                        android:textSize="14sp"
+                        tools:ignore="SmallSp"
+                        tools:text="1" />
+
+                    <TextView
+                        android:id="@+id/txt_for_away"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_below="@id/txt_mid_away"
+                        android:textAlignment="textEnd"
+                        android:textSize="14sp"
+                        tools:ignore="SmallSp"
+                        tools:text="2" />
+                </RelativeLayout>
 
             </RelativeLayout>
 
@@ -439,28 +500,28 @@
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_marginTop="10dp"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp">
 
                 <TextView
-                    android:id="@+id/txtHomeSub"
+                    android:id="@+id/txt_sub_home"
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
-                    tools:text="0"
                     android:textAlignment="viewStart"
                     android:textSize="14sp"
-                    tools:ignore="SmallSp" />
+                    tools:ignore="SmallSp"
+                    tools:text="0" />
 
                 <TextView
-                    android:id="@+id/txtAwaySub"
+                    android:id="@+id/txt_sub_away"
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
                     android:layout_alignParentTop="true"
-                    tools:text="0"
                     android:textAlignment="textEnd"
                     android:textSize="14sp"
-                    tools:ignore="SmallSp" />
+                    tools:ignore="SmallSp"
+                    tools:text="0" />
 
                 <TextView
                     android:id="@+id/txtSub"
@@ -468,10 +529,10 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
                     android:layout_alignParentTop="true"
+                    android:text="@string/substitues"
                     android:textAlignment="center"
                     android:textColor="@color/colorPrimary"
                     android:textSize="14sp"
-                    android:text="@string/substitues"
                     tools:ignore="SmallSp" />
 
             </RelativeLayout>
