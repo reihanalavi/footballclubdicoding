@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">FootballMatch</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="goals">Goals</string>
+    <string name="shots">Shots</string>
+    <string name="red_card_s">Red Card(s)</string>
+    <string name="yellow_card_s">Yellow Card(s)</string>
+    <string name="goalkeeper">Goalkeeper</string>
+    <string name="defense">Defense</string>
+    <string name="midfield">Midfield</string>
+    <string name="forward">Forward</string>
+    <string name="substitues">Substitues</string>
+</resources>
