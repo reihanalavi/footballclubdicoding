@@ -38,39 +38,39 @@ class DetailActivity : AppCompatActivity(), DetailView {
                 val awayData = away?.get(0)
 
                 //Replaces Team Home from Detail Results
-                var goalHome: String? = data?.homeGoal
+                val goalHome: String? = data?.homeGoal
                 goalHome?.replace(";", "\n")
-                var redHome: String? = data?.homeRed
+                val redHome: String? = data?.homeRed
                 redHome?.replace(";", "\n")
-                var yellowHome: String? = data?.homeYellow
+                val yellowHome: String? = data?.homeYellow
                 yellowHome?.replace(";", "\n")
-                var gkHome: String? = data?.homeGk
+                val gkHome: String? = data?.homeGk
                 gkHome?.replace(";", "\n")
-                var defHome: String? = data?.homeDef
+                val defHome: String? = data?.homeDef
                 defHome?.replace(";", "\n")
-                var midHome: String? = data?.homeMid
+                val midHome: String? = data?.homeMid
                 midHome?.replace(";", "\n")
-                var forHome: String? = data?.homeFor
+                val forHome: String? = data?.homeFor
                 forHome?.replace(";", "\n")
-                var subHome: String? = data?.homeSub
+                val subHome: String? = data?.homeSub
                 subHome?.replace(";", "\n")
 
                 //Replaces Team Away from Detail Results
-                var goalAway: String? = data?.awayGoal
+                val goalAway: String? = data?.awayGoal
                 goalAway?.replace(";", "\n")
-                var redAway: String? = data?.awayRed
+                val redAway: String? = data?.awayRed
                 redAway?.replace(";", "\n")
-                var yellowAway: String? = data?.awayYellow
+                val yellowAway: String? = data?.awayYellow
                 yellowAway?.replace(";", "\n")
-                var gkAway: String? = data?.awayGk
+                val gkAway: String? = data?.awayGk
                 gkAway?.replace(";", "\n")
-                var defAway: String? = data?.awayDef
+                val defAway: String? = data?.awayDef
                 defAway?.replace(";", "\n")
-                var midAway: String? = data?.awayMid
+                val midAway: String? = data?.awayMid
                 midAway?.replace(";", "\n")
-                var forAway: String? = data?.awayFor
+                val forAway: String? = data?.awayFor
                 forAway?.replace(";", "\n")
-                var subAway: String? = data?.awaySub
+                val subAway: String? = data?.awaySub
                 subAway?.replace(";", "\n")
 
                 Glide.with(ctx).load(homeData?.teamBadge).into(img_home)
