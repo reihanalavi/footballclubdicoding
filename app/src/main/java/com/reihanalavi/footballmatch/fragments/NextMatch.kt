@@ -58,6 +58,10 @@ class NextMatch : Fragment(), MatchView {
         }
     }
 
+    override fun showNull() {
+        toast("There is no upcoming match(es)")
+    }
+
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment

@@ -9,4 +9,5 @@ interface MatchView {
     fun showLoading()
     fun hideLoading()
     fun showMatch(data: List<MatchItems>?)
+    fun showNull()
 }

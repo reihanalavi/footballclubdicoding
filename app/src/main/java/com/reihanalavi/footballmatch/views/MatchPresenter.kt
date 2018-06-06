@@ -30,6 +30,9 @@ class MatchPresenter(
                     uiThread {
                         view.hideLoading()
                         view.showMatch(data.matchItems)
+                        if(data.matchItems?.size == null) {
+                            view.showNull()
+                        }
                     }
                 }
 
@@ -43,6 +46,9 @@ class MatchPresenter(
                     uiThread {
                         view.hideLoading()
                         view.showMatch(data.matchItems)
+                        if (data.matchItems?.size == null) {
+                            view.showNull()
+                        }
                     }
                 }
             }

@@ -59,10 +59,11 @@ class PastMatch : Fragment(), MatchView {
         data?.let {
             Log.i("On Show Match : ", "Data Size : ${data?.size}")
             matchAdapter.refresh(it)
-            if(data?.size == null) {
-                toast(getString(R.string.there_is_no_previous_match))
-            }
         }
+    }
+
+    override fun showNull() {
+        toast("There is no Previous Match(es)")
     }
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
