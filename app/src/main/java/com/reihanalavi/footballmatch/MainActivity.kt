@@ -1,7 +1,8 @@
-package com.reihanalavi.footballmatch
+package com.reihanalavi.footballmatchN
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import com.reihanalavi.footballmatch.R
 import com.reihanalavi.footballmatch.R.id.next_match
 import com.reihanalavi.footballmatch.R.id.past_match
 import com.reihanalavi.footballmatch.fragments.NextMatch

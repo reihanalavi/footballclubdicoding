@@ -14,7 +14,6 @@ import android.widget.Spinner
 import android.widget.Toast
 import com.google.gson.Gson
 import com.reihanalavi.footballmatch.DetailActivity
-import com.reihanalavi.footballmatch.MainActivity
 
 import com.reihanalavi.footballmatch.R
 import com.reihanalavi.footballmatch.models.MatchItems
